@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         body{
-            height: 130vh; 
+            height: 200vh; 
 
             background-color: rgb(7, 7, 43);
             display: flex;
@@ -16,7 +16,7 @@
         }
         
         .big{
-            height: 650px;
+            height: 660px;
             width: 500px;
             background-color:yellowgreen;
             display: flex;
@@ -54,13 +54,21 @@
         }
         .btn{
             background-color: rgb(161, 75, 242);
-            height: 40px;
-            width: 100px;
+            height: 50px;
+            width: 130px;
         }
         .bt{
             background-color: rgb(88, 205, 140);
-            height: 40px;
-            width: 100px;
+            height: 30px;
+            width: 90px;
+        }
+        .how{
+            font-size:35px ;
+            color:coral;
+        }
+        .des{
+            font-size: 20px;
+            color: tomato;
         }
         @media (max-width: 768px){
             body{
@@ -82,6 +90,10 @@
                 height: 63px;
                 width: 63px;
                 scale: 1;
+            }
+            .des{
+            font-size: 15px;
+            color: tomato;
         }
         }
     </style>
@@ -106,6 +118,13 @@
         <button class="btn">COUNT : 0</button>
         <br>
         <button class="bt">Reset</button>
+        <br>
+        <br>
+
+        <h1 class="how">How To Play:</h1>
+        <p class="des">There are a total of nine boxes, and all are green except for one.</p>
+        <p class="des">You have to find all 8 green boxes in one go to win the game.</p>
+        <p class="des">If you choose that one exception, you will lose the game.</p>
 
 
 
@@ -130,7 +149,7 @@
                 small.disabled = true;
 
                 console.log("mode : ",mode);
-                if(mode===8){
+                if(mode===8 && m.disabled === false){
                     console.log("chal na");
                     
                     alert("Congratulation");
