@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 130vh; 
+
+            background-color: rgb(7, 7, 43);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .big{
+            height: 650px;
+            width: 500px;
+            background-color:yellowgreen;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+            align-items: center;
+            gap: 10px;  
+            border-radius: 30px;
+        }
+        .small{
+            height: 120px;
+            width: 120px;
+            background-color:bisque;
+            border-radius:20px;
+        }
+        .small:hover{
+            height: 115px;
+            width: 115px;
+            scale: 1;
+        }
+        .smal{
+            height: 120px;
+            width: 120px;
+            background-color:bisque;
+            border-radius:20px;
+        }
+        .smal:hover{
+            height: 115px;
+            width: 115px;
+            scale: 1;
+        }
+        .head{
+            color: rgb(164, 79, 244);
+            font-size: 65px;
+        }
+        .btn{
+            background-color: rgb(161, 75, 242);
+            height: 40px;
+            width: 100px;
+        }
+        .bt{
+            background-color: rgb(88, 205, 140);
+            height: 40px;
+            width: 100px;
+        }
+        @media (max-width: 768px){
+            body{
+                height: 100%;
+                width: 100%;
+            }
+            .big{
+                height:300px ;
+                width: 60%;
+            }
+            .small{
+                height:60px ;
+                width: 60px;
+            }
+            .head{
+                font-size: 50px;
+            }
+            .small:hover{
+                height: 63px;
+                width: 63px;
+                scale: 1;
+        }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="head">Button Bash</h1>
+    
+        <div class="big">
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+            <button class="small"></button>
+        
+        </div>
+        <br>
+        <br>
+        <button class="btn">COUNT : 0</button>
+        <br>
+        <button class="bt">Reset</button>
+
+
+
+    <script>
+        let small = document.querySelectorAll(".small");
+        
+        let btn = document.querySelector(".btn");
+        let bt = document.querySelector(".bt");
+        let mode = 0;
+        
+        let losingButtonIndex = Math.floor(Math.random() * small.length);
+        console.log(losingButtonIndex);
+
+        let m = small[losingButtonIndex];
+        
+
+        small.forEach(small=>{
+                small.addEventListener("click",() => {
+                mode++;
+                btn.innerText=`${mode}`;
+                small.style.backgroundColor = "Green";
+                small.disabled = true;
+
+                console.log("mode : ",mode);
+                if(mode===8){
+                    console.log("chal na");
+                    
+                    alert("Congratulation Bro");
+                    alert("Click Reset to Replay");
+                    
+                        m.disabled = true;
+                    
+                    mode=0;
+                    btn.innerHTML=`${mode}`;
+                }
+            });
+        });
+        
+
+        small[losingButtonIndex].addEventListener("click",() => {
+            // console.log(losingButtonIndex);
+
+            alert("HAR GYA TU!!");
+            alert("Click Reset to Replay");
+           
+            small.forEach(small=>{
+                small.style.backgroundColor = "bisque";
+                
+                small.disabled = true;
+            });
+            small[losingButtonIndex].style.backgroundColor = "bisque";
+            small[losingButtonIndex].disabled = true;
+            mode=0;
+            btn.innerText=`${mode}`;
+            losingButtonIndex = Math.floor(Math.random() * small.length);
+
+        });
+
+        bt.addEventListener("click",() => {
+            
+            small.forEach(small=>{
+                small.style.backgroundColor = "bisque";
+                small.disabled = false;
+                
+            });
+
+
+            small[losingButtonIndex].disabled = false;
+            mode=0;
+            btn.innerText=`${mode}`;
+            small[losingButtonIndex].style.backgroundColor = "bisque";
+
+            losingButtonIndex = Math.floor(Math.random() * small.length);
+            console.log( losingButtonIndex );
+            location.reload();
+
+        });
+
+    </script>
+
+
+
+    
+</body>
+</html>
