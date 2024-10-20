@@ -122,7 +122,7 @@
         let m = small[losingButtonIndex];
         
 
-        small.forEach(small=>{
+        small.forEach((small)=>{
                 small.addEventListener("click",() => {
                 mode++;
                 btn.innerText=`${mode}`;
@@ -151,7 +151,7 @@
             alert("Better Luck Next Time!!");
             alert("Click Reset to Replay");
            
-            small.forEach(small=>{
+            small.forEach((small)=>{
                 small.style.backgroundColor = "bisque";
                 
                 small.disabled = true;
@@ -166,20 +166,20 @@
 
         bt.addEventListener("click",() => {
             
-            small.forEach(small=>{
-                small.style.backgroundColor = "bisque";
-                small.disabled = false;
+            // small.forEach((small)=>{
+            //     small.style.backgroundColor = "bisque";
+            //     small.disabled = false;
                 
-            });
+            // });
 
 
-            small[losingButtonIndex].disabled = false;
-            mode=0;
-            btn.innerText=`${mode}`;
-            small[losingButtonIndex].style.backgroundColor = "bisque";
+            // small[losingButtonIndex].disabled = false;
+            // mode=0;
+            // btn.innerText=`${mode}`;
+            // small[losingButtonIndex].style.backgroundColor = "bisque";
 
-            losingButtonIndex = Math.floor(Math.random() * small.length);
-            console.log( losingButtonIndex );
+            // losingButtonIndex = Math.floor(Math.random() * small.length);
+            // console.log( losingButtonIndex );
             location.reload();
 
         });
