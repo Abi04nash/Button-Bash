@@ -121,6 +121,10 @@
         <br>
         <br>
 
+        <audio id="sab" src="all.wav"></audio>
+        <audio id="new" src="jeet.wav"></audio>
+        <audio id="haar" src="lose.wav"></audio>
+
         <h1 class="how">How To Play:</h1>
         <p class="des">There are a total of nine boxes, and all are green except for one.</p>
         <p class="des">You have to find all 8 green boxes in one go to win the game.</p>
@@ -134,6 +138,9 @@
         let btn = document.querySelector(".btn");
         let bt = document.querySelector(".bt");
         let mode = 0;
+        // const s = document.getElementById('sab');
+        // const ss = document.getElementById('start');
+        // const sss = document.getElementById('lose');
         
         let losingButtonIndex = Math.floor(Math.random() * small.length);
         console.log(losingButtonIndex);
@@ -143,6 +150,9 @@
 
         small.forEach((small)=>{
                 small.addEventListener("click",() => {
+                const s = document.getElementById('sab');
+                s.currentTime = 0; 
+                s.play();
                 mode++;
                 btn.innerText=`${mode}`;
                 small.style.backgroundColor = "Green";
@@ -150,6 +160,9 @@
 
                 console.log("mode : ",mode);
                 if(mode===8 && m.disabled === false){
+                    const ss = document.getElementById('new');
+                    ss.currentTime = 0; 
+                    ss.play();
                     console.log("chal na");
                     
                     alert("Congratulation");
@@ -166,7 +179,9 @@
 
         small[losingButtonIndex].addEventListener("click",() => {
             // console.log(losingButtonIndex);
-
+            const sss = document.getElementById('haar');
+            sss.currentTime = 0; 
+            sss.play();
             alert("Better Luck Next Time!!");
             alert("Click Reset to Replay");
            
